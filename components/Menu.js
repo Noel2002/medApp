@@ -6,6 +6,7 @@ import { styles } from './styles/menu';
 
 
 function Menu() {
+  let key = 0;
   return (
     <ScrollView  style={styles.container}>
         <Text style={styles.sectionTitle}>
@@ -15,7 +16,7 @@ function Menu() {
             {
                 cards.map( card =>{
                     return(
-                        <FeatureCard cardInfo={card} />
+                        <FeatureCard cardInfo={card} key = {key++} />
                     );
                 })
             }
