@@ -5,7 +5,7 @@ import FeatureCard from './FeatureCard';
 import { styles } from './styles/menu';
 
 
-function Menu() {
+function Menu({navigation}) {
   let key = 0;
   return (
     <ScrollView  style={styles.container}>
@@ -16,7 +16,7 @@ function Menu() {
             {
                 cards.map( card =>{
                     return(
-                        <FeatureCard cardInfo={card} key = {key++} />
+                        <FeatureCard cardInfo={card} key = {key++} navigation={navigation} />
                     );
                 })
             }
