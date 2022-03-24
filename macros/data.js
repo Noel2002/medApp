@@ -5,10 +5,10 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 export const cards = [
     {
-        cardCaption: 'Consumption Alarm',
+        cardCaption: 'Pill Reminder',
         Icon: FontAwesome5,
         iconName: 'user-clock',
-        screen: 'Home'
+        screen: 'PillManager'
     },
     {
         cardCaption: 'Overdose Alert',
@@ -60,4 +60,35 @@ export const cards = [
 
     },
 
+]
+
+export const pills = [
+    {
+        name: 'Paracetamol',
+        time: '10 : 30 am',
+        partOfDay: 'morning',
+        type: 'tablets',
+
+    },
+    {
+        name: 'Coartem',
+        time: '08 : 30 am',
+        partOfDay: 'morning',
+        type: 'tablets',
+
+    },
+    {
+        name: 'Stresslin',
+        time: '13 : 30 am',
+        partOfDay: 'afternoon',
+        type: 'drops',
+
+    },
+    {
+        name: 'Paracetamol',
+        time: '19 : 30 am',
+        partOfDay: 'night',
+        type: 'tablets',
+
+    },
 ]

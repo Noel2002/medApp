@@ -3,6 +3,7 @@ import { createAppContainer } from "react-navigation";
 import Home from "../screens/Home";
 import Alerts from "../screens/Alerts";
 import Emergency from "../screens/Emergency";
+import PillManager from "../screens/PillManager";
 
 
 const screens = {
@@ -15,6 +16,9 @@ const screens = {
     }, 
     Emergency :{
         screen: Emergency
+    }, 
+    PillManager:{
+        screen: PillManager,
     }
 }
 const Homestack = createStackNavigator(screens);
