@@ -53,10 +53,10 @@ export const cards = [
 
     },
     {
-        cardCaption: 'Upto 1-month Battery Use',
-        Icon: FontAwesome,
-        iconName: 'battery-full',
-        screen: 'Home'
+        cardCaption: 'Emergency',
+        Icon: FontAwesome5,
+        iconName: 'exclamation-circle',
+        screen: 'Emergency'
 
     },
 
