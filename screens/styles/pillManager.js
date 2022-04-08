@@ -5,8 +5,11 @@ const addButtonSize = 50;
 
 export const styles = StyleSheet.create({
     container:{
-        padding: 20,
+        paddingHorizontal: 20,
         flex: 1,
+        paddingTop: 20,
+        paddingBottom: 40,
+
     },
     cartoon:{
         marginTop: 20,

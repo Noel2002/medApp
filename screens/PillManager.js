@@ -1,33 +1,57 @@
-import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {View, Text, TouchableOpacity, LogBox, ScrollView} from 'react-native';
+import { getDocs, collection} from 'firebase/firestore';
 import { styles } from './styles/pillManager';
 import { Fontisto } from '@expo/vector-icons';
 import { colors } from '../macros/colors';
 import { pills } from '../macros/data';
 import PillCard from '../components/PillCard';
+import { db } from '../firebase';
 
 const PillManager = () => {
-  const categorise = (data) =>{
+  //Stoping firebase timer warnings
+  LogBox.ignoreLogs(['Setting a timer']);
+
+  const [reminders, setReminders] = useState([]);
+  let catKey =0;
+  let pillKey = 0;
+  useEffect( async ()=>{
+    const data = await getDocs(collection(db, "reminders"));
+    data.forEach(doc => {
+        setReminders( prev => ([...prev, {...doc.data()}]))
+    });
+  },[]);
+
+
+  const categorise = (reminders) =>{
       let categorised ={
           morning:[],
           afternoon : [],
           night: []
       }
 
-      data.forEach(element => {
-          categorised[element.partOfDay].push(element);
+      reminders.forEach(reminder => {
+          if( reminder.time.hours >19){
+            categorised["night"].push({...reminder})
+          }
+          else if( reminder.time.hours> 12){
+            categorised["afternoon"].push({...reminder})
+          }
+          else{
+            categorised["morning"].push({...reminder})
+          }
       });
 
       return {...categorised};
   }
-  const categorised = categorise(pills);
+  const categorised = categorise(reminders);
   const categories = [
       "morning",
       "afternoon",
       "night"
   ];
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
         <View style ={styles.cartoon}>
             <Fontisto name="pills" size={60} color={colors.text.secondary} />
             <View style={styles.banner}>
@@ -44,13 +68,13 @@ const PillManager = () => {
             {
                 categories.map( category => {
                     return(
-                        <View>
+                        <View key={catKey++}>
                             <Text style={styles.sectionHeader}>
                                 {category}
                             </Text>
-                            {categorised[category].map( pill =>{
+                            {!(categorised[category].length) ? <Text>No pills</Text> : categorised[category].map( pill =>{
                                 return(
-                                    <PillCard pill={pill} />
+                                    <PillCard pill={pill} key={pillKey++} />
                                 );
                             })}
                         </View>
@@ -59,10 +83,10 @@ const PillManager = () => {
             }
         </View>
 
-        <TouchableOpacity style={styles.addButton}>
+        {/* <TouchableOpacity style={styles.addButton}>
             <Text style={styles.addButtonCaption}>+</Text>
-        </TouchableOpacity>
-    </View>
+        </TouchableOpacity> */}
+    </ScrollView>
   )
 }
 

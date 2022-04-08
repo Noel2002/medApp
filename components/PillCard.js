@@ -24,6 +24,12 @@ const PillCard = (props) => {
       name : Icons[pill.type? pill.type: "tablets"].name,
   }
   const iconSize = 30;
+  const numPad = (num)=>{
+      if(num<10){
+        return "0" + num.toString();
+      }
+      return num
+  }
 
   return (
     <View style={styles.container}>
@@ -36,7 +42,7 @@ const PillCard = (props) => {
         </View>
         <View style={styles.textPart}>
             <Text style={styles.pillName}>{pill.name}</Text>
-            <Text style={styles.time}>{`${pill.time?.hours} : ${pill.time?.minutes}`}</Text>
+            <Text style={styles.time}>{`${numPad(pill.time?.hours)} : ${numPad(pill.time?.minutes)}`}</Text>
 
         </View>
     </View>

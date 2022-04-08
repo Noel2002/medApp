@@ -68,8 +68,10 @@ const AddPill = () =>{
     const handleSubmit= async ()=>{
       readyData.forEach(async (reminder )=> {
         const docRef = await addDoc(collection(db, "reminders"), reminder);
-        console.log("Documented added successfully: ", docRef.id);
+        // console.log("Documented added successfully: ", docRef.id);
       });
+      setReadyData([]);
+      alert("Data added successfully!");
 
     }
 
