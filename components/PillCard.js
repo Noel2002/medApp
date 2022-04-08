@@ -20,8 +20,8 @@ const Icons = {
 const PillCard = (props) => {
   const {pill} = props;
   const Icon = {
-      component: Icons[pill.type].icon,
-      name : Icons[pill.type].name,
+      component: Icons[pill.type? pill.type: "tablets"].icon,
+      name : Icons[pill.type? pill.type: "tablets"].name,
   }
   const iconSize = 30;
 
@@ -36,7 +36,7 @@ const PillCard = (props) => {
         </View>
         <View style={styles.textPart}>
             <Text style={styles.pillName}>{pill.name}</Text>
-            <Text style={styles.time}>{pill.time}</Text>
+            <Text style={styles.time}>{`${pill.time?.hours} : ${pill.time?.minutes}`}</Text>
 
         </View>
     </View>

@@ -32,17 +32,17 @@ export const cards = [
 
     },
     {
-        cardCaption: 'Family Monitoring',
+        cardCaption: 'User Account',
         Icon: MaterialIcons,
         iconName: 'family-restroom',
-        screen: 'Home'
+        screen: 'Login'
 
     },
     {
-        cardCaption: 'Sound & LED',
+        cardCaption: 'Add Pill',
         Icon: MaterialCommunityIcons,
         iconName: 'antenna',
-        screen: 'Home'
+        screen: 'AddPill'
 
     },
     {
