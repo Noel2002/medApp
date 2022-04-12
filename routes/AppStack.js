@@ -1,6 +1,7 @@
 import { createStackNavigator } from "react-navigation-stack";
 import { createAppContainer } from "react-navigation";
 import Login from "../screens/Login";
+import Header from "../components/Header";
 import Homestack from "./Homestack";
 
 const screens = {

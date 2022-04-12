@@ -11,26 +11,33 @@ export const cards = [
         screen: 'PillManager'
     },
     {
-        cardCaption: 'Overdose Alert',
-        Icon: MaterialCommunityIcons,
-        iconName: 'cellphone-message',
-        screen: 'Alerts'
+        cardCaption: 'Add Pill',
+        Icon: MaterialIcons,
+        iconName: 'add-alert',
+        screen: 'AddPill'
 
     },
-    {
-        cardCaption: 'Not Carrying & Disconneted Alarm',
-        Icon: MaterialCommunityIcons,
-        iconName: 'cellphone-nfc-off',
-        screen: 'Home'
+    // {
+    //     cardCaption: 'Overdose Alert',
+    //     Icon: MaterialCommunityIcons,
+    //     iconName: 'cellphone-message',
+    //     screen: 'Alerts'
 
-    },
-    {
-        cardCaption: 'IR Sensed Reminder',
-        Icon: MaterialCommunityIcons,
-        iconName: 'reminder',
-        screen: 'Home'
+    // },
+    // {
+    //     cardCaption: 'Not Carrying & Disconneted Alarm',
+    //     Icon: MaterialCommunityIcons,
+    //     iconName: 'cellphone-nfc-off',
+    //     screen: 'Home'
 
-    },
+    // },
+    // {
+    //     cardCaption: 'IR Sensed Reminder',
+    //     Icon: MaterialCommunityIcons,
+    //     iconName: 'reminder',
+    //     screen: 'Home'
+
+    // },
     {
         cardCaption: 'User Account',
         Icon: MaterialIcons,
@@ -38,20 +45,14 @@ export const cards = [
         screen: 'Login'
 
     },
-    {
-        cardCaption: 'Add Pill',
-        Icon: MaterialCommunityIcons,
-        iconName: 'antenna',
-        screen: 'AddPill'
+    
+    // {
+    //     cardCaption: 'Refill Alarm',
+    //     Icon: MaterialCommunityIcons,
+    //     iconName: 'alarm-multiple',
+    //     screen: 'Home'
 
-    },
-    {
-        cardCaption: 'Refill Alarm',
-        Icon: MaterialCommunityIcons,
-        iconName: 'alarm-multiple',
-        screen: 'Home'
-
-    },
+    // },
     {
         cardCaption: 'Emergency',
         Icon: FontAwesome5,

@@ -1,14 +1,18 @@
 import { StyleSheet, Text, View,ScrollView, TextInput, Button, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { styles } from './styles/addPill';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import PillCard from '../components/PillCard';
 import { collection, addDoc } from 'firebase/firestore'
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
 
 const AddPill = () =>{
   
     let cardKey = 0;
+    const [userEmail, setUserEmail] = useState("");
+    useEffect(()=>{
+      setUserEmail(auth.currentUser.email);
+    }, [])
     const getCurrentTime = ()=>{
       const date= new Date(Date.now());
       return(
@@ -61,7 +65,7 @@ const AddPill = () =>{
       hideDatePicker();
     };
     const handleCommit = ()=>{
-      const data = {...formdata};
+      const data = {...formdata, userEmail};
       setReadyData( prev => ([ ...prev, data]));
     }
 

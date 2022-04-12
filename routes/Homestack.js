@@ -6,6 +6,7 @@ import Emergency from "../screens/Emergency";
 import PillManager from "../screens/PillManager";
 import AddPill from "../screens/AddPill";
 import Login from "../screens/Login";
+import Header from "../components/Header";
 
 
 const screens = {
@@ -13,7 +14,8 @@ const screens = {
         screen: Home,
         navigationOptions:{
             title: "Home", 
-            headerLeft: ()=> null
+            headerLeft: ()=> null,
+            header: ()=> <Header />
         }
 
     },
