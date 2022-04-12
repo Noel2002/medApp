@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
         borderTopLeftRadius: radius,
         borderTopRightRadius: radius,
         backgroundColor: 'white',
+        flex: 1,
     },
     sectionTitle:{
         color: colors.text.secondary,
@@ -21,7 +22,7 @@ export const styles = StyleSheet.create({
         flexDirection:'row',
         marginTop: 20,
         flexWrap:'wrap',
-        marginBottom: 40
+        marginBottom: 40,
 
     }
 });
