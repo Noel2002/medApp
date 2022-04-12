@@ -5,7 +5,7 @@ import Menu from '../components/Menu';
 
 const Home = ({navigation}) => {
   return (
-    <View>
+    <View style={{flex: 1}}>
         {/* <Header /> */}
         <Menu  navigation={navigation} />
     </View>

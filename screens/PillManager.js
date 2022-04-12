@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity, LogBox, ScrollView} from 'react-native';
-import { getDocs, collection} from 'firebase/firestore';
+import { getDocs, collection, query, where} from 'firebase/firestore';
 import { styles } from './styles/pillManager';
 import { Fontisto } from '@expo/vector-icons';
 import { colors } from '../macros/colors';
 import { pills } from '../macros/data';
 import PillCard from '../components/PillCard';
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
 
 const PillManager = () => {
   //Stoping firebase timer warnings
@@ -16,7 +16,9 @@ const PillManager = () => {
   let catKey =0;
   let pillKey = 0;
   useEffect( async ()=>{
-    const data = await getDocs(collection(db, "reminders"));
+    const userEmail = auth.currentUser.email;
+    const q = query(collection(db, "reminders"), where("userEmail", "==", userEmail))
+    const data = await getDocs(q);
     data.forEach(doc => {
         setReminders( prev => ([...prev, {...doc.data()}]))
     });
